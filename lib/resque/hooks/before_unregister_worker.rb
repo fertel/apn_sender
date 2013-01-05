@@ -7,7 +7,7 @@ module Resque
 
     # Wrapper for original unregister_worker method which adds a before hook +before_unregister_worker+
     # to be executed if present.
-    def unregister_worker
+    def unregister_worker(param=nil)
       run_hook(:before_unregister_worker, self) 
       unregister_worker_without_before_hook
     end
