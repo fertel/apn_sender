@@ -66,6 +66,7 @@ module APN
       
       # Get a fix on the .pem certificate we'll be using for SSL
       def setup_paths
+        @opts[:environment] ||= ENV["APN_ENV"] if ENV["APN_ENV"]
         @opts[:environment] ||= ::Rails.env if defined?(::Rails.env)
 
         # Accept a complete :full_cert_path allowing arbitrary certificate names, or create a default from the Rails env
